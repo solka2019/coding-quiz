@@ -1,3 +1,5 @@
+alert("comecando o script.js");
+
 let start = document.getElementById("start");
 let quiz = document.getElementById("quiz");
 let question = document.getElementById("question");
@@ -11,20 +13,17 @@ let choiceD = document.getElementById("D");
 let questionTime = 15;
 let count = 0;
 
-let TIMER =
-    setInterval(counterRender, 1000);
+let TIMER = setInterval(counterRender, 1000);
 // run the counterRender every 1sec
 // stop running : setInterval()
 clearInterval(TIMER);
 
-
-
-questions[0].question
-questions[0].choiceA
-questions[0].choiceB
-questions[0].choiceC
-questions[0].choiceD
-questions[0].correct
+// questions[0].question
+// questions[0].choiceA
+// questions[0].choiceB
+// questions[0].choiceC
+// questions[0].choiceD
+// questions[0].correct
 
 let lastQuestionIndex = questions.length - 1;
 // array.length -> 4 
@@ -74,11 +73,10 @@ function checkAnswer(answer) {
     if (questions[runningQuestionIndex].correct == answer) {
         score++;
         answerIsCorrect();
-
-
     } else {
         answerIsWrong();
     }
+
     if (runningQuestionIndex < lastQuestionIndex) {
         count = 0;
         runningQuestionIndex++;
@@ -90,14 +88,26 @@ function checkAnswer(answer) {
         scoreRender();
     }
 }
+
+alert("antes de adicionar listener");
 start.addEventListener("click", startQuiz);
-let TIMER;
+
+
 // it is outside the function, so any other function can access the timer
-function startQuiz(){
+function startQuiz() {
+    alert("comecou a fcn");
     start.style.display = "none";
     counterRender();
     TIMER = setInterval(counterRender, 1000);
     questionRender();
     quiz.style.display = "block";
     // in my html, I set the display style to "none"
+    // Ternary Operator - condition? ExprTrue : ExprFalse;
+}
+
+function scoreRender() {
+    scoreContainer.style.display = "block";
+    let scorePerCent = Math.round(100 * score / questions.length);
+
+}
 

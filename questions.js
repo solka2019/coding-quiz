@@ -1,3 +1,5 @@
+alert("comecando o questions.js");
+
 let questions = [
     {
       question: "Commonly used data types DO NOT include:",
@@ -39,5 +41,5 @@ let questions = [
       choiceC: "How do you declare variables?",
       choiceD: "What are the two ways to add JS to your site?",
       correct: "How do you add JS To your site internally?"
-    {
+    }
   ];
