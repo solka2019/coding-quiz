@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Quiz</title>
 
@@ -15,8 +16,16 @@
 
 <body>
     <div id="container">
+        
+        
+        <div id = "highscores">Highscores</div>
+        <div id = "timer">Timer</div>
+        <!-- <div id="timer"></div> -->
+            
+            <div id="counter">15</div>
+        
         <div id="start">Start Quiz!</div>
-        <div id="quiz" style="display : none">
+                <div id="quiz" style="display : none">
             <div id="question">
                 <p> Question </p>
             </div>
@@ -26,9 +35,9 @@
                 <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
                 <div class="choice" id="D" onclick="checkAnswer('D')">D</div>
             </div>
-            <div id="timer">
+            <!-- <div id="timer">
                 <div id="counter">15</div>
-            </div>
+            </div> -->
             <div id="answerResult"></div>
         </div>
         <div id="score" style="display : none">
@@ -37,8 +46,10 @@
                 <ul id="highScoreList">
 
                 </ul>
+                <div id= "typeInitials">Please type your initials</div> 
             </div>
         </div>
+        <button class="submit-btn">Submit</button>
     </div>
 
     <script src="questions.js"></script>

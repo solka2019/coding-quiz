@@ -22,6 +22,7 @@ let TIMER = setInterval(counterRender, 1000);
 let highScoresText = localStorage.getItem("jsQuizResults");
 let highScores = null;
 
+
 if (highScoresText != null) {
     console.log(highScoresText);
     highScores = JSON.parse(highScoresText);
@@ -56,6 +57,8 @@ if (highScores == null || highScores.length == 0) {
     ];
 }
 
+
+
 for (var c = 0; c < highScores.length; c++) {
     let inner = highScoreList.innerHTML;
     inner += "<li>" + highScores[c].initials + " " + highScores[c].score + "</li>";
@@ -83,14 +86,13 @@ let runningQuestionIndex = 0;
 // runningQuestionIndex++
 // renderQuestion()
 let gameScore = 0;
-
+// below: define function
 function answerIsCorrect() {
     console.log("got a correct answer");
     answerResult.innerHTML = "<p>Correct!</p>"
-    setTimeout(function () {
-        // wait for 2s
-        goToNextQuestionOrEndGame();
-    }, 2000);
+    // below: call function
+    setTimeout(
+        goToNextQuestionOrEndGame , 2000);
 }
 
 // answer is Wrong
@@ -98,10 +100,7 @@ function answerIsWrong() {
     console.log("got a wrong answer");
     answerResult.innerHTML = "<p>Incorrect!</p>"
 
-    setTimeout(function () {
-        // wait for 2s
-        goToNextQuestionOrEndGame();
-    }, 2000);
+    setTimeout(goToNextQuestionOrEndGame, 2000);
 }
 
 function renderQuestion() {
