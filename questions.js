@@ -1,5 +1,3 @@
-alert("comecando o questions.js");
-
 let questions = [
     {
       question: "Commonly used data types DO NOT include:",
@@ -7,7 +5,7 @@ let questions = [
       choiceB: "booleans",
       choiceC: "alerts",
       choiceD: "numbers",
-      correct: "alerts"
+      correct: "C"
     },
     {
         question: "The condition in an if / else statement is enclosed within ____.",
@@ -15,7 +13,7 @@ let questions = [
         choiceB: "curly brackets",
         choiceC: "parentheses",
         choiceD: "square brackets",
-        correct: "parentheses"
+        correct: "C"
     },
     {
         question: "A letter, $ or_",
@@ -23,7 +21,7 @@ let questions = [
         choiceB: "What kind of value does Boolean take?",
         choiceC: "What will an undeclared variable return?",
         choiceD: "What must a variable begin with?",
-        correct: "What must a variable begin with?"
+        correct: "D"
 
     },
     {
@@ -32,7 +30,7 @@ let questions = [
         choiceB: "msg(“Hello”)",
         choiceC: "msgbox(“Hello”)",
         choiceD: "alert(“Hello”)",
-        correct: "alert(“Hello”)"
+        correct: "D"
     },
     {
         question: "Internally using html <script></script> tag. Best practice to place it before closing body tag .",
@@ -40,6 +38,6 @@ let questions = [
       choiceB: "How do you add JS to your site externally?",
       choiceC: "How do you declare variables?",
       choiceD: "What are the two ways to add JS to your site?",
-      correct: "How do you add JS To your site internally?"
+      correct: "A"
     }
   ];
