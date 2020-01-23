@@ -19,10 +19,13 @@
         
         
         <div id = "highscores">Highscores</div>
-        <div id = "timer">Timer</div>
+        <div id = "timer">
+            Timer
+            <div id="counter">15</div>
+        </div>
         <!-- <div id="timer"></div> -->
             
-            <div id="counter">15</div>
+            
         
         <div id="start">Start Quiz!</div>
                 <div id="quiz" style="display : none">
@@ -46,10 +49,12 @@
                 <ul id="highScoreList">
 
                 </ul>
-                <div id= "typeInitials">Please type your initials</div> 
+                <div id= "typeInitials">
+                    Enter you Initials: <input type="text" id="initials" max="3" />
+                </div> 
             </div>
         </div>
-        <button class="submit-btn">Submit</button>
+        <!-- <button class="submit-btn">Submit</button> -->
     </div>
 
     <script src="questions.js"></script>

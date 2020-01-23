@@ -8,7 +8,7 @@ let question = document.getElementById("question");
 let counter = document.getElementById("counter");
 let answerResult = document.getElementById("answerResult");
 let highScoreList = document.getElementById("highScoreList");
-
+let initialsEl = document.getElementById("initials");
 let choiceA = document.getElementById("A");
 let choiceB = document.getElementById("B");
 let choiceC = document.getElementById("C");
@@ -19,51 +19,55 @@ let count = 0;
 
 let TIMER = setInterval(counterRender, 1000);
 
-let highScoresText = localStorage.getItem("jsQuizResults");
-let highScores = null;
+// let highScoresText = localStorage.getItem("jsQuizResults");
+// let highScores = null;
 
 
-if (highScoresText != null) {
-    console.log(highScoresText);
-    highScores = JSON.parse(highScoresText);
+// if (highScoresText != null) {
+//     console.log(highScoresText);
+//     highScores = JSON.parse(highScoresText);
+// }
+
+// if (highScores == null || highScores.length == 0) {
+//     // create a default list of scores
+//     highScores = [{
+//             initials: "aaa",
+//             score: 100
+//         },
+//         {
+//             initials: "bbb",
+//             score: 90
+//         },
+//         {
+//             initials: "ccc",
+//             score: 80
+//         },
+//         {
+//             initials: "ddd",
+//             score: 70
+//         },
+//         {
+//             initials: "eee",
+//             score: 60
+//         },
+//         {
+//             initials: "fff",
+//             score: 50
+//         }
+//     ];
+// }
+
+function displayHighScores(highScores){
+    highScoreList.innerHTML = ""
+    for (var c = 0; c < highScores.length; c++) {
+        let inner = highScoreList.innerHTML;
+        inner += "<li>" + highScores[c].initials + " " + highScores[c].score + "</li>";
+        highScoreList.innerHTML = inner;
+    }
 }
 
-if (highScores == null || highScores.length == 0) {
-    // create a default list of scores
-    highScores = [{
-            initials: "aaa",
-            score: 100
-        },
-        {
-            initials: "bbb",
-            score: 90
-        },
-        {
-            initials: "ccc",
-            score: 80
-        },
-        {
-            initials: "ddd",
-            score: 70
-        },
-        {
-            initials: "eee",
-            score: 60
-        },
-        {
-            initials: "fff",
-            score: 50
-        }
-    ];
-}
 
 
-
-for (var c = 0; c < highScores.length; c++) {
-    let inner = highScoreList.innerHTML;
-    inner += "<li>" + highScores[c].initials + " " + highScores[c].score + "</li>";
-    highScoreList.innerHTML = inner;
-}
 
 /*
 var highScores = [
@@ -188,7 +192,29 @@ function scoreRender() {
         message = "<p>You didn't get any answer correctly!</p>";
     }
 
-    score.innerHTML = message;
+//    score.append("<button class='save-button'>Submit</button>")
+   var submitBtnEle = document.createElement("button");
+   submitBtnEle.setAttribute("id", "submitBtn");
+   submitBtnEle.setAttribute("value", "Submit")
+   submitBtnEle.textContent = "Submit";
+   //submitBtnEle.onclick = handleInitials()
+   score.appendChild(submitBtnEle)
+   document.getElementById("submitBtn").addEventListener("click",handleInitials)
 
-    localStorage.setItem("jsQuizResults", JSON.stringify(highScores));
+    //localStorage.setItem("jsQuizResults", JSON.stringify(highScores));
+}
+
+function handleInitials(){
+    var initials = initialsEl.value.trim();
+    console.log("initials: "+initials)
+   var highScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+   var newScore = {
+       score: gameScore,
+       initials: initials
+   }
+   highScores.push(newScore);
+   window.localStorage.setItem("highscores",JSON.stringify(highScores));
+   displayHighScores(highScores)
+
+
 }
